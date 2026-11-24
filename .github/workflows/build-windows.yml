@@ -1,0 +1,124 @@
+
+name: ChaosStrap | Windows Build & Release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chaosstrap-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_VERSION: '10.0.x'
+  BUILD_CONFIGURATION: Release
+  TARGET_RUNTIME: win-x64
+
+jobs:
+  windows:
+    name: Compile and Package ChaosStrap
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Verify project files
+        shell: pwsh
+        run: |
+          if (!(Test-Path "ChaosStrap.csproj")) {
+            throw "ChaosStrap.csproj was not found in the repository root."
+          }
+
+          if (!(Test-Path "installer/ChaosStrap.iss")) {
+            throw "Installer configuration is missing."
+          }
+
+      - name: Restore NuGet packages
+        run: dotnet restore ChaosStrap.csproj
+
+      - name: Compile and publish application
+        run: >
+          dotnet publish ChaosStrap.csproj
+          -c ${{ env.BUILD_CONFIGURATION }}
+          -r ${{ env.TARGET_RUNTIME }}
+          --self-contained true
+          -o publish/win-x64
+          -p:PublishSingleFile=false
+
+      - name: Verify published executable
+        shell: pwsh
+        run: |
+          if (!(Test-Path "publish/win-x64/ChaosStrap.exe")) {
+            throw "ChaosStrap.exe was not generated."
+          }
+
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress
+
+      - name: Generate Windows installer
+        shell: pwsh
+        run: |
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+
+          if (!(Test-Path $compiler)) {
+            throw "Inno Setup compiler was not found."
+          }
+
+          & $compiler "installer/ChaosStrap.iss"
+
+          if ($LASTEXITCODE -ne 0) {
+            throw "Windows installer generation failed."
+          }
+
+      - name: Generate portable package
+        shell: pwsh
+        run: |
+          Compress-Archive `
+            -Path "publish/win-x64/*" `
+            -DestinationPath "ChaosStrap-win-x64-portable.zip" `
+            -CompressionLevel Optimal `
+            -Force
+
+      - name: Verify installer output
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem "installer-output" -Filter "*.exe"
+
+          if (!$installer) {
+            throw "No installer executable was generated."
+          }
+
+      - name: Upload build downloads
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChaosStrap-Windows-${{ github.sha }}
+          path: |
+            installer-output/*.exe
+            ChaosStrap-win-x64-portable.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ChaosStrap ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            installer-output/*.exe
+            ChaosStrap-win-x64-portable.zip
