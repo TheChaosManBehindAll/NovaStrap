@@ -1,73 +1,157 @@
-# ChaosStrap
+ <div align="center">
 
-**ChaosStrap** is an independently implemented Roblox launcher project created and maintained by **xphantomcorp**.
+<h1>ChaosStrap</h1>
 
-This repository is a clean-room implementation. The Froststrap 2.0.8 archive was reviewed as a feature reference only. No Froststrap source files, code, UI markup, assets, or project files were copied into this project. The ChaosStrap application structure, UI, services, and branding in this repository were authored independently.
+<p><strong>Take control of your Roblox experience.</strong></p>
 
-## Current foundation
+<img src="Assets/chaosstrap-mark.png" width="190" alt="ChaosStrap Logo"/>
 
-- Dark graphite and crimson visual identity based on the ChaosStrap emblem.
-- Roblox Player installation detection on Windows.
-- Open the official Roblox experience hub so Roblox can complete its normal authenticated launch handoff.
-- Open the detected Roblox installation directory.
-- Local launcher preferences stored under `%LOCALAPPDATA%\Chaos6Interactive\ChaosStrap`.
-- Basic JSON FastFlag editor for the detected Roblox version's `ClientSettings\ClientAppSettings.json`.
-- Navigation foundations for Overview, FastFlags, Mod Manager, Appearance, and Settings.
+<p>A modern Windows Roblox bootstrapper built for performance, customisation and control.</p>
 
-## Not implemented yet
+<p>
+  <a href="#installation"><strong>Download</strong></a> ·
+  <a href="#features"><strong>Features</strong></a> ·
+  <a href="#building-from-source"><strong>Build from source</strong></a> ·
+  <a href="https://github.com/TheChaosManBehindAll/ChaosStrap/issues"><strong>Report an issue</strong></a>
+</p>
 
-The Mod Manager, update delivery, account management, channel switching, server browser, region selection, Discord integrations, tray controls, and advanced bootstrap/install pipeline are not implemented in this foundation. They should be developed as separate, tested features rather than represented as finished when they are not.
+</div>
 
-## Build
+<div align="center">
 
-Requirements: .NET 10 SDK and Windows 10/11.
+[![Build](https://img.shields.io/github/actions/workflow/status/TheChaosManBehindAll/ChaosStrap/build-windows.yml?branch=main&style=for-the-badge&color=9b2335&label=BUILD)](https://github.com/TheChaosManBehindAll/ChaosStrap/actions)
+[![Latest Release](https://img.shields.io/github/v/release/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=9b2335&label=VERSION)](https://github.com/TheChaosManBehindAll/ChaosStrap/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/TheChaosManBehindAll/ChaosStrap/total?style=for-the-badge&color=9b2335&label=DOWNLOADS)](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)
+[![Stars](https://img.shields.io/github/stars/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=9b2335&label=STARS)](https://github.com/TheChaosManBehindAll/ChaosStrap/stargazers)
 
-```powershell
-dotnet restore
-dotnet build -c Release
-dotnet run
+</div>
+
+---
+
+## What is ChaosStrap?
+
+ChaosStrap is an independent Roblox bootstrapper developed by **xphantomcorp**.
+
+It is designed to give Roblox players greater control over their game client, with tools for launching, configuration, customisation and performance management.
+
+Instead of juggling multiple applications and manually managing settings, ChaosStrap aims to bring the tools players need into one convenient application.
+
+Built with **C#**, **.NET 10** and **Avalonia UI**, ChaosStrap is being developed with a focus on usability, reliability and a polished Windows experience.
+
+## Installation
+
+ChaosStrap downloads will be distributed through the official GitHub Releases page.
+
+<div align="center">
+
+### Get ChaosStrap
+
+<a href="https://github.com/TheChaosManBehindAll/ChaosStrap/releases/latest">
+<strong>View Latest Release</strong>
+</a>
+
+</div>
+
+> [!IMPORTANT]
+> Only download ChaosStrap from the official repository. Downloads from unofficial sources are not verified or affiliated with the project.
+
+### Windows
+
+| System | Support |
+| :- | :- |
+| Windows 10 | Target platform |
+| Windows 11 | Target platform |
+| Architecture | x64 |
+
+ChaosStrap is currently being developed for Windows. Other platforms are not currently supported.
+
+## Features
+
+ChaosStrap is being developed around the tools that make managing and playing Roblox easier.
+
+### Roblox Management
+
+- Roblox installation and update management.
+- Installation repair and recovery.
+- Multiple Roblox account management.
+- Multiple client instances.
+- Roblox version management.
+
+### Performance and Configuration
+
+- FastFlag management.
+- Custom configuration profiles.
+- Performance-related settings.
+- Per-game configuration options.
+- Configuration backup and restoration.
+
+### Customisation
+
+- Roblox modification management.
+- Custom application themes.
+- Customisable launcher appearance.
+- Import and export of configurations.
+
+### Integrations and Convenience
+
+- Quickplay shortcuts.
+- Server discovery and selection.
+- Discord Rich Presence integration.
+- Playtime tracking.
+- Launch configuration management.
+
+> [!NOTE]
+> ChaosStrap is actively being developed. Not every feature listed above is currently available. Features will be marked as implemented as development progresses.
+
+## Why ChaosStrap?
+
+A Roblox bootstrapper should be more than a way to launch a game.
+
+ChaosStrap is built around three main principles:
+
+**Control**
+
+Manage your Roblox configuration, accounts and customisation from one place.
+
+**Performance**
+
+Keep the application lightweight and focus on settings that have a meaningful impact on the experience.
+
+**Reliability**
+
+Make installation, updates and troubleshooting easier, with recovery options when something goes wrong.
+
+## Building from source
+
+Want to compile ChaosStrap yourself?
+
+### Requirements
+
+- Windows 10 or Windows 11.
+- Git.
+- .NET 10 SDK.
+- Inno Setup 6 (for building the Windows installer).
+
+### Clone the repository
+
+```bash
+git clone https://github.com/TheChaosManBehindAll/ChaosStrap.git
+cd ChaosStrap
 ```
 
-The current build environment used to generate this source archive did not have the .NET SDK installed, so compilation has not yet been verified. Run the commands above on a Windows development machine and share any build output for fixes. Direct Roblox client startup requires a signed launch ticket, so this first build opens the official Roblox home page rather than attempting an unsupported direct executable launch.
+### Restore dependencies
 
-## Safety notes
-
-ChaosStrap does not bypass Roblox security, modify anti-cheat components, or inject code into the Roblox process. The FastFlag editor writes only the local Roblox client settings JSON file. Roblox may ignore unsupported flags.
-
-## Branding
-
-Product: ChaosStrap  
-Developer: xphantomcorp  
-Palette: graphite, near-black, crimson red  
-Logo: `Assets/chaosstrap-mark.png`
-
-## Windows installer and code signing
-
-The GitHub Actions workflow builds both a Windows x64 installer (`ChaosStrap-Setup-0.2.0-win-x64.exe`) and a portable ZIP. The installer is created with Inno Setup and includes Start Menu shortcuts, an optional desktop shortcut, and an uninstall entry.
-
-The installer metadata identifies the publisher as `xphantomcorp`. **This metadata alone does not make Windows show a verified publisher.** Windows only displays a trusted publisher when the executable and installer are digitally signed with a valid code-signing certificate issued to the publisher. Without a certificate, Windows may show an unknown/unverified publisher warning.
-
-To enable signing after obtaining a trusted code-signing certificate in PFX format:
-
-1. In the GitHub repository, open **Settings → Secrets and variables → Actions**.
-2. Add a secret named `WINDOWS_PFX_BASE64` containing the certificate file encoded as Base64.
-3. Add a secret named `WINDOWS_PFX_PASSWORD` containing the PFX password.
-4. Re-run the workflow. It will sign the published application executables and installer.
-
-Keep the PFX file and password private. Never commit either to the repository. Certificate providers have different identity-verification and issuance requirements; the certificate's legal subject name is what Windows uses as the verified publisher identity. Do not use a self-signed certificate if your goal is to avoid the unknown-publisher warning.
-
-## Automatic GitHub builds
-
-This repository includes a GitHub Actions workflow at `.github/workflows/build-windows.yml`.
-
-- Every push to `main` or `master` and every pull request targeting those branches runs a Windows x64 publish build.
-- Use **Actions → Build ChaosStrap for Windows → Run workflow** to start a build manually.
-- Download `ChaosStrap-win-x64.zip` from the completed workflow run's **Artifacts** section.
-- To create a versioned GitHub Release automatically, push a tag beginning with `v`, for example:
-
-```powershell
-git tag v0.1.0
-git push origin v0.1.0
+```bash
+dotnet restore ChaosStrap.csproj
 ```
 
-The release includes a Windows installer EXE and a portable ZIP of the self-contained Windows x64 application. Run the installer to install ChaosStrap, or extract the portable ZIP to use it without installing.
+### Build
+
+```bash
+dotnet build ChaosStrap.csproj -c Release
+```
+
+### Publish
+
+```bash
+dot
