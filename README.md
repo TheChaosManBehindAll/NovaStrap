@@ -1,157 +1,199 @@
  <div align="center">
 
-<h1>ChaosStrap</h1>
+<img src="Assets/chaosstrap-mark.png" width="190" alt="ChaosStrap"/>
 
-<p><strong>Take control of your Roblox experience.</strong></p>
+# ChaosStrap
 
-<img src="Assets/chaosstrap-mark.png" width="190" alt="ChaosStrap Logo"/>
+### TAKE CONTROL OF YOUR ROBLOX EXPERIENCE.
 
-<p>A modern Windows Roblox bootstrapper built for performance, customisation and control.</p>
+A Windows Roblox bootstrapper focused on performance, customisation and a better way to manage your Roblox client.
 
-<p>
-  <a href="#installation"><strong>Download</strong></a> ·
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#building-from-source"><strong>Build from source</strong></a> ·
-  <a href="https://github.com/TheChaosManBehindAll/ChaosStrap/issues"><strong>Report an issue</strong></a>
-</p>
+[**Explore the project**](https://github.com/TheChaosManBehindAll/ChaosStrap) · [**Report an issue**](https://github.com/TheChaosManBehindAll/ChaosStrap/issues) · [**View releases**](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)
 
-</div>
+<br/>
 
-<div align="center">
-
-[![Build](https://img.shields.io/github/actions/workflow/status/TheChaosManBehindAll/ChaosStrap/build-windows.yml?branch=main&style=for-the-badge&color=9b2335&label=BUILD)](https://github.com/TheChaosManBehindAll/ChaosStrap/actions)
-[![Latest Release](https://img.shields.io/github/v/release/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=9b2335&label=VERSION)](https://github.com/TheChaosManBehindAll/ChaosStrap/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/TheChaosManBehindAll/ChaosStrap/total?style=for-the-badge&color=9b2335&label=DOWNLOADS)](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)
-[![Stars](https://img.shields.io/github/stars/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=9b2335&label=STARS)](https://github.com/TheChaosManBehindAll/ChaosStrap/stargazers)
+![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-9B2335?style=for-the-badge&logo=windows&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-10-9B2335?style=for-the-badge&logo=dotnet&logoColor=white)
+![Avalonia](https://img.shields.io/badge/UI-Avalonia-9B2335?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C%23-9B2335?style=for-the-badge&logo=csharp&logoColor=white)
 
 </div>
 
 ---
 
-## What is ChaosStrap?
+## About ChaosStrap
 
 ChaosStrap is an independent Roblox bootstrapper developed by **xphantomcorp**.
 
-It is designed to give Roblox players greater control over their game client, with tools for launching, configuration, customisation and performance management.
+Its purpose is to give players more control over their Roblox experience, bringing launching, configuration, customisation and useful management tools together in one application.
 
-Instead of juggling multiple applications and manually managing settings, ChaosStrap aims to bring the tools players need into one convenient application.
+We believe a bootstrapper should do more than simply open Roblox. It should make managing the client easier, provide meaningful options and stay out of the way when you're playing.
 
-Built with **C#**, **.NET 10** and **Avalonia UI**, ChaosStrap is being developed with a focus on usability, reliability and a polished Windows experience.
+ChaosStrap is being developed with **C#**, **.NET 10** and **Avalonia UI**, targeting Windows 10 and Windows 11.
+
+## The idea
+
+<details>
+<summary><strong>01 · Performance & control</strong></summary>
+
+Useful configuration tools, FastFlag management and sensible performance options, without pretending that every setting magically increases FPS.
+
+</details>
+
+<details>
+<summary><strong>02 · Customisation</strong></summary>
+
+Manage supported modifications, organise configurations and make your Roblox setup your own.
+
+</details>
+
+<details>
+<summary><strong>03 · Smarter launching</strong></summary>
+
+Make launching Roblox, managing accounts and returning to your favourite experiences easier.
+
+</details>
+
+<details>
+<summary><strong>04 · Reliability</strong></summary>
+
+Clear diagnostics, safer updates, backups and recovery tools to help when something goes wrong.
+
+</details>
+
+## Features & development
+
+ChaosStrap's development is organised around the following areas.
+
+| Area | Planned capabilities |
+|---|---|
+| Roblox management | Installation, updates, repair and version management |
+| Accounts | Account profiles and convenient switching |
+| Launching | Quickplay, launch options and multi-instance support |
+| FastFlags | Editing, validation, searching and profiles |
+| Modifications | Mod installation, management and compatibility |
+| Performance | Configuration tools and useful performance information |
+| Discord | Rich Presence and playtime integration |
+| Recovery | Diagnostics, configuration backups and restoration |
+
+> [!IMPORTANT]
+> ChaosStrap is in active development. The capabilities above describe the project's development direction, not a guarantee that every feature is currently available.
+
+## Screenshots
+
+Application screenshots will be added here as the interface becomes ready for public release.
 
 ## Installation
 
-ChaosStrap downloads will be distributed through the official GitHub Releases page.
+**Public release downloads are not yet available.**
 
-<div align="center">
+When official builds are published, they will be distributed through the repository's Releases page.
 
-### Get ChaosStrap
+[**View ChaosStrap Releases**](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)
 
-<a href="https://github.com/TheChaosManBehindAll/ChaosStrap/releases/latest">
-<strong>View Latest Release</strong>
-</a>
+> [!CAUTION]
+> Only download executable files from the official ChaosStrap repository or other explicitly verified project distribution channels.
 
-</div>
+## Platform support
 
-> [!IMPORTANT]
-> Only download ChaosStrap from the official repository. Downloads from unofficial sources are not verified or affiliated with the project.
+| Platform | Status |
+|---|---|
+| Windows 10 x64 | Development target |
+| Windows 11 x64 | Development target |
+| macOS | Not currently supported |
+| Linux | Not currently supported |
 
-### Windows
-
-| System | Support |
-| :- | :- |
-| Windows 10 | Target platform |
-| Windows 11 | Target platform |
-| Architecture | x64 |
-
-ChaosStrap is currently being developed for Windows. Other platforms are not currently supported.
-
-## Features
-
-ChaosStrap is being developed around the tools that make managing and playing Roblox easier.
-
-### Roblox Management
-
-- Roblox installation and update management.
-- Installation repair and recovery.
-- Multiple Roblox account management.
-- Multiple client instances.
-- Roblox version management.
-
-### Performance and Configuration
-
-- FastFlag management.
-- Custom configuration profiles.
-- Performance-related settings.
-- Per-game configuration options.
-- Configuration backup and restoration.
-
-### Customisation
-
-- Roblox modification management.
-- Custom application themes.
-- Customisable launcher appearance.
-- Import and export of configurations.
-
-### Integrations and Convenience
-
-- Quickplay shortcuts.
-- Server discovery and selection.
-- Discord Rich Presence integration.
-- Playtime tracking.
-- Launch configuration management.
-
-> [!NOTE]
-> ChaosStrap is actively being developed. Not every feature listed above is currently available. Features will be marked as implemented as development progresses.
-
-## Why ChaosStrap?
-
-A Roblox bootstrapper should be more than a way to launch a game.
-
-ChaosStrap is built around three main principles:
-
-**Control**
-
-Manage your Roblox configuration, accounts and customisation from one place.
-
-**Performance**
-
-Keep the application lightweight and focus on settings that have a meaningful impact on the experience.
-
-**Reliability**
-
-Make installation, updates and troubleshooting easier, with recovery options when something goes wrong.
+ChaosStrap is currently focused on Windows. Other platforms may be considered in the future.
 
 ## Building from source
 
-Want to compile ChaosStrap yourself?
+Interested in compiling ChaosStrap yourself?
 
 ### Requirements
 
 - Windows 10 or Windows 11.
 - Git.
 - .NET 10 SDK.
-- Inno Setup 6 (for building the Windows installer).
+- Inno Setup 6, if you intend to compile the installer.
 
-### Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/TheChaosManBehindAll/ChaosStrap.git
 cd ChaosStrap
 ```
 
-### Restore dependencies
+### 2. Restore dependencies
 
 ```bash
 dotnet restore ChaosStrap.csproj
 ```
 
-### Build
+### 3. Build
 
 ```bash
 dotnet build ChaosStrap.csproj -c Release
 ```
 
-### Publish
+### 4. Publish
 
 ```bash
-dot
+dotnet publish ChaosStrap.csproj -c Release -r win-x64 --self-contained true -o publish/win-x64
+```
+
+The published application will be located in:
+
+```text
+publish/win-x64/
+```
+
+### Project technology
+
+| Component | Technology |
+|---|---|
+| Language | C# |
+| Framework | .NET 10 |
+| Interface | Avalonia UI |
+| Installer | Inno Setup |
+| CI/CD | GitHub Actions |
+
+## Contributing
+
+Contributions, suggestions and bug reports are welcome.
+
+Before opening an issue or pull request:
+
+1. Check whether the issue has already been reported.
+2. Explain the problem or proposed improvement.
+3. Include useful reproduction steps for bugs.
+4. Keep contributions focused and easy to review.
+
+[**Open an issue**](https://github.com/TheChaosManBehindAll/ChaosStrap/issues)
+
+## Security
+
+Please report security vulnerabilities privately rather than publishing sensitive details in a public issue.
+
+Security reporting instructions will be provided as the project establishes its disclosure process.
+
+## Licensing
+
+The project's licence and third-party notices will be documented in the repository before public distribution.
+
+## Support ChaosStrap
+
+If you like the direction of the project, consider starring the repository. It helps people discover ChaosStrap and follow its development.
+
+<div align="center">
+
+[![Star on GitHub](https://img.shields.io/github/stars/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=9B2335&logo=github)](https://github.com/TheChaosManBehindAll/ChaosStrap/stargazers)
+
+<br/>
+
+**CHAOSSTRAP**
+
+*Built for a better way to play Roblox.*
+
+<sub>Developed by xphantomcorp.</sub>
+
+</div>
