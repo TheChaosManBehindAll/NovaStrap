@@ -1,225 +1,233 @@
 <div align="center">
-  <img src="./Assets/chaosstrap-mark.png" width="156" alt="ChaosStrap logo" />
+  <img src="./Assets/chaosstrap-mark.png" alt="ChaosStrap" width="144" />
   <h1>ChaosStrap</h1>
   <p><strong>Roblox client management for Windows.</strong></p>
-  <p>Configure your client, manage local settings and launch Roblox through a focused desktop application.</p>
-  <p><sub>Independently developed by <strong>xphantomcorp</strong></sub></p>
+  <p>A focused desktop application for managing Roblox-related settings and launch tasks.</p>
+  <p><sub>Official project repository · Developed by xphantomcorp</sub></p>
   <br />
-  <a href="https://github.com/TheChaosManBehindAll/ChaosStrap/stargazers">
-    <img src="https://img.shields.io/github/stars/TheChaosManBehindAll/ChaosStrap?style=flat-square&color=9B2335&label=stars" alt="GitHub stars" />
+  <a href="https://github.com/TheChaosManBehindAll/ChaosStrap/actions/workflows/build-windows.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/TheChaosManBehindAll/ChaosStrap/build-windows.yml?branch=main&style=for-the-badge&label=WINDOWS%20BUILD&logo=githubactions&logoColor=white" alt="Windows build status" />
   </a>
-  <img src="https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-9B2335?style=flat-square" alt="Windows 10 and 11" />
-  <img src="https://img.shields.io/badge/.NET-10-9B2335?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 10" />
-  <img src="https://img.shields.io/badge/UI-Avalonia-9B2335?style=flat-square" alt="Avalonia UI" />
+  <a href="https://github.com/TheChaosManBehindAll/ChaosStrap/stargazers">
+    <img src="https://img.shields.io/github/stars/TheChaosManBehindAll/ChaosStrap?style=for-the-badge&color=8D2638&label=STARS" alt="GitHub stars" />
+  </a>
+  <img src="https://img.shields.io/badge/PLATFORM-WINDOWS%2010%20%7C%2011-8D2638?style=for-the-badge" alt="Windows 10 and Windows 11" />
+  <img src="https://img.shields.io/badge/BUILT%20WITH-.NET%2010-8D2638?style=for-the-badge&logo=dotnet&logoColor=white" alt="Built with .NET 10" />
 </div>
 
 ---
 
-ChaosStrap is an independent, Windows-first Roblox bootstrapper project. It is being developed to make common client-management tasks easier to understand and control from one desktop application.
+## Overview
 
-The project is built with **C#**, **.NET 10** and **Avalonia UI**. Its current codebase is an early foundation: it can detect a local Roblox Player installation, open the official Roblox experience hub, store local preferences and edit the local FastFlag JSON file. A complete replacement for the standard Roblox installer and launcher is not available yet.
+ChaosStrap is an independently developed Windows application for managing selected Roblox client settings and launch-related tasks. It is built with **C#**, **.NET 10** and **Avalonia UI**.
 
-> [!NOTE]
-> **Development status: early development.** There is no public installer release at this time. The sections below distinguish working functionality from planned work so you can see exactly what is and is not available.
+The project is being developed as a practical, configurable alternative to the standard Roblox launching experience. Its current foundation focuses on local Roblox installation detection, local preferences and FastFlag file editing. The broader bootstrapper, installation and account-management workflows are still in development.
 
-## Contents
-
-- [Project status](#project-status)
-- [What works today](#what-works-today)
-- [Development roadmap](#development-roadmap)
-- [Downloads](#downloads)
-- [Build from source](#build-from-source)
-- [Local data and FastFlags](#local-data-and-fastflags)
-- [Compatibility and safety](#compatibility-and-safety)
-- [Reporting a problem](#reporting-a-problem)
-- [Maintainer](#maintainer)
-- [Contributing](#contributing)
-- [License](#license)
+This repository is the official source for the ChaosStrap project. The application is **not affiliated with, endorsed by or sponsored by Roblox Corporation**.
 
 ## Project status
 
-| | Current position |
+| Property | Details |
 |---|---|
-| Project stage | Early development / prototype |
+| Development stage | Pre-release |
+| Supported platform | Windows 10 and Windows 11 (x64) |
+| Framework | .NET 10 |
+| Language | C# |
+| UI framework | Avalonia UI |
 | Maintainer | xphantomcorp |
-| Target platform | Windows 10 and Windows 11 (x64) |
-| Application stack | C#, .NET 10, Avalonia UI |
-| Public installer | Not released |
-| Distribution | Source archive only; no installer release |
+| Public GitHub release | Not published yet |
 
-ChaosStrap is being developed as a **maintainer-led independent project**. Features are added to the available-feature list only after they have been implemented. A planned feature is not a promise that it is already present in a build.
+ChaosStrap is still under active development. The capabilities below describe the current foundation; planned work is listed separately and should not be interpreted as already available.
 
-## What works today
+## Current capabilities
 
-The current foundation includes the following functionality:
+The current application foundation includes:
 
-| Area | Available behaviour |
+| Capability | Current behaviour |
 |---|---|
-| Roblox detection | Detects the local Roblox Player installation on Windows. |
-| Roblox launch handoff | Opens the official Roblox experience hub and leaves the authenticated launch flow to Roblox. |
-| Installation shortcut | Opens the detected Roblox installation directory. |
-| Local preferences | Saves application preferences for the current Windows user. |
-| FastFlag editing | Provides a basic JSON editor for `ClientAppSettings.json` in the detected Roblox version directory. |
-| Application navigation | Includes the initial Overview, FastFlags, Mod Manager, Appearance and Settings navigation structure. Some destinations are still placeholders. |
+| Roblox installation detection | Detects a local Roblox Player installation on Windows. |
+| Roblox launch hand-off | Opens the official Roblox experience hub. Roblox handles authentication and the normal client-launch hand-off. |
+| Installation access | Opens the detected Roblox installation directory. |
+| Local preferences | Stores application preferences for the current Windows user. |
+| FastFlag file editing | Provides a basic JSON editor for the detected version's `ClientSettings\ClientAppSettings.json` file. |
 
-### Current launch behaviour
+### Launch behaviour
 
-The launch action currently opens the official Roblox experience hub. Roblox then handles its normal authenticated handoff to the client. ChaosStrap does **not** currently perform a complete bootstrap, install or direct client-launch sequence.
+The current launch action opens the official Roblox experience hub. It does not yet replace Roblox's complete installation or bootstrap process, and it does not directly launch the client using an unsupported launch method.
 
-### Current FastFlag behaviour
+### FastFlag editor
 
-The FastFlag page edits the local `ClientAppSettings.json` file as JSON. It is a basic configuration editor, not a catalogue of verified settings. Saving a flag does not guarantee that Roblox recognises, allows or applies it.
+The FastFlag editor provides access to the local `ClientAppSettings.json` file. It is a general JSON editor, not a verified FastFlag catalogue or allowlist validator. Roblox may ignore unsupported, restricted or obsolete values. Saving a setting does not guarantee that Roblox will apply it or that it will improve performance.
 
 ## Development roadmap
 
-These are the main areas being considered or developed. They are not available features unless listed in [What works today](#what-works-today).
+The following areas represent the project's development direction. They are not part of the current feature set unless explicitly listed in [Current capabilities](#current-capabilities).
 
-| Area | Intended work |
-|---|---|
-| Bootstrap and installation | Install, update and repair workflows; safer handling of Roblox version changes. |
-| Launch management | A complete launch pipeline, launch options and multi-instance support. |
-| Accounts | Convenient local account management and switching. |
-| FastFlags | Validation, search, profiles, import and export. |
-| Mod management | Install, organise and remove supported client customisations. |
-| Roblox versions | Version and release-channel management. |
-| Server tools | Quickplay, server discovery and region selection. |
-| Integrations | Discord Rich Presence and playtime tracking. |
-| Diagnostics | Clear error reporting, configuration backups and recovery tools. |
+- **Bootstrap and installation:** a complete installation, update and repair workflow.
+- **Launch management:** improved launch options and reliable client launch orchestration.
+- **Configuration:** FastFlag validation, profiles, and import/export.
+- **Customisation:** supported modification management and compatibility checks.
+- **Accounts and sessions:** local account management and multi-instance support.
+- **Integrations:** Discord Rich Presence, playtime tracking and server discovery.
+- **Diagnostics:** clearer error reporting, configuration backups and recovery tools.
 
-The roadmap is intentionally flexible. Priorities may change as Roblox updates its client, APIs or distribution behaviour.
+The roadmap may change as development progresses and Roblox's client behaviour evolves.
 
 ## Downloads
 
-**No public installer is available yet.** The GitHub Releases page is the official place where packaged builds will be published when they are ready:
+There is currently **no published public release**. Official installer and portable downloads will be listed on the repository's Releases page when a release is ready.
 
-**[View ChaosStrap releases](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)**
+- [GitHub Releases](https://github.com/TheChaosManBehindAll/ChaosStrap/releases)
+- [Windows build workflow](https://github.com/TheChaosManBehindAll/ChaosStrap/actions/workflows/build-windows.yml)
 
-Until a release is published, the repository should be treated as a development project, not as a ready-to-install Roblox replacement. Be cautious of third-party websites claiming to distribute official ChaosStrap installers.
+For development testing, successful workflow runs provide temporary build artifacts. Open a completed run and download the files from its **Artifacts** section. These artifacts are intended for testing, are not stable releases, and are retained for a limited period by GitHub Actions.
+
+Only use downloads published through this repository's Releases page or its GitHub Actions workflow. Third-party downloads are not official ChaosStrap distributions.
 
 ## Build from source
 
-ChaosStrap can be built from its source project on Windows.
-
 ### Requirements
 
-- Windows 10 or Windows 11, x64.
-- [Git](https://git-scm.com/downloads).
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
-- [Inno Setup 6](https://jrsoftware.org/isinfo.php), only if you want to compile the installer.
+- Windows 10 or Windows 11 (x64)
+- [Git](https://git-scm.com/downloads)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- [Inno Setup 6](https://jrsoftware.org/isinfo.php), only when compiling the Windows installer
 
-### 1. Obtain the source
+### Clone the repository
 
-The current GitHub repository contains a source archive rather than an extracted project tree. Download the archive from the repository's **Code** page, extract it, and open PowerShell in the directory that contains `ChaosStrap.csproj`.
+```powershell
+git clone https://github.com/TheChaosManBehindAll/ChaosStrap.git
+Set-Location .\ChaosStrap
+```
 
-When the source files are committed directly to the repository, this step can be replaced with a normal `git clone` workflow.
-
-### 2. Restore dependencies
+### Restore dependencies
 
 ```powershell
 dotnet restore .\ChaosStrap.csproj
 ```
 
-### 3. Build
+### Build
 
 ```powershell
 dotnet build .\ChaosStrap.csproj --configuration Release
 ```
 
-### 4. Run the application
+### Run the application
 
 ```powershell
 dotnet run --project .\ChaosStrap.csproj
 ```
 
-### 5. Publish a self-contained Windows build
+### Publish a self-contained Windows build
 
 ```powershell
 dotnet publish .\ChaosStrap.csproj `
   --configuration Release `
   --runtime win-x64 `
   --self-contained true `
-  --output .\publish\win-x64
+  --output .\publish\win-x64 `
+  -p:PublishSingleFile=false
 ```
 
-The published application files will be written to `publish\win-x64\`.
+The published application is written to `publish\win-x64\`.
 
-### 6. Compile the installer (optional)
+### Compile the Windows installer
 
-After publishing, install Inno Setup 6 and run its compiler from the project root:
+Publish the application first, then install Inno Setup 6 and run its compiler from the repository root:
 
 ```powershell
 $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
 & $compiler ".\installer\ChaosStrap.iss"
 
 if ($LASTEXITCODE -ne 0) {
-    throw "Inno Setup compilation failed."
+    throw "Installer compilation failed."
 }
 ```
 
-The installer script expects the published files in `publish\win-x64\`. If compilation fails, confirm that publishing completed and that the paths referenced by `installer\ChaosStrap.iss` exist.
+The installer script reads the published files from `publish\win-x64\` and writes the installer to the configured output directory.
 
-> [!TIP]
-> For a useful bug report, include the command you ran and the complete build output. A screenshot of the final error line alone often omits the cause.
+## Automated builds
+
+The repository includes a Windows build and release workflow at `.github/workflows/build-windows.yml`.
+
+| Event | Workflow behaviour |
+|---|---|
+| Push to `main` or `master` | Publishes the Windows x64 application and creates build artifacts. |
+| Pull request | Runs the Windows build workflow. |
+| Manual dispatch | Allows a build to be started from the GitHub Actions page. |
+| Version tag beginning with `v` | Builds the Windows packages and creates a GitHub Release. |
+
+A successful workflow run uploads the Windows installer and portable package as workflow artifacts. The workflow artifact is separate from a published GitHub Release.
+
+See [Actions](https://github.com/TheChaosManBehindAll/ChaosStrap/actions) for the latest workflow status and build history.
 
 ## Local data and FastFlags
 
-ChaosStrap stores its application preferences locally for the signed-in Windows user. The current application data directory is:
+Application preferences are stored for the current Windows user under:
 
 ```text
 %LOCALAPPDATA%\Chaos6Interactive\ChaosStrap
 ```
 
-The FastFlag editor targets `ClientSettings\ClientAppSettings.json` inside the detected Roblox version directory.
+The FastFlag editor targets the `ClientSettings\ClientAppSettings.json` file in the detected Roblox version directory.
 
-Before editing Roblox configuration manually:
+Before changing client settings:
 
-1. Close Roblox Player and Studio.
-2. Keep a copy of the existing settings file.
-3. Change only settings you understand.
+1. Close Roblox Player and Roblox Studio.
+2. Keep a backup of the existing settings file.
+3. Change only values you understand.
 4. Remember that Roblox may ignore settings that are unsupported or no longer permitted.
 
-FastFlags are client configuration values. They are not guaranteed performance optimisations, and entering a value does not mean Roblox will use it.
+FastFlags are configuration values, not guaranteed performance optimisations. Their behaviour can vary between Roblox client versions and devices.
 
-## Compatibility and safety
+## Security and compatibility
 
-- **Windows only:** Windows 10 and Windows 11 x64 are the current development targets. macOS and Linux are not supported at this stage.
-- **Independent project:** ChaosStrap is not affiliated with, endorsed by or sponsored by Roblox Corporation.
-- **Normal Roblox launch flow:** The current launcher action hands off to Roblox's official experience hub. It does not bypass Roblox authentication.
-- **Local configuration:** The current FastFlag editor writes to a local Roblox settings file. Unsupported values may be ignored and may change client behaviour.
-- **No performance guarantees:** Configuration changes can have different results across devices and Roblox updates. ChaosStrap does not promise an FPS increase from FastFlags.
+- **Windows only:** Windows 10 and Windows 11 x64 are the current supported development targets.
+- **Roblox authentication:** the current launch hand-off uses the official Roblox experience hub; ChaosStrap does not handle Roblox account passwords.
+- **Local configuration:** the current FastFlag editor modifies the local Roblox client settings JSON file.
+- **No exploit functionality:** ChaosStrap is not designed to inject code into the Roblox process, bypass Roblox security or modify anti-cheat components.
+- **No performance guarantees:** configuration changes may have no effect, may be ignored by Roblox, or may behave differently after client updates.
 
-## Reporting a problem
+ChaosStrap is an independent third-party project and is not affiliated with Roblox Corporation. Roblox is a trademark of Roblox Corporation.
 
-Before opening an issue, check whether someone has already reported the same problem. If it is new, use the [GitHub issue tracker](https://github.com/TheChaosManBehindAll/ChaosStrap/issues) and include:
+## Reporting issues
 
-1. Your Windows edition and version (Windows 10 or 11).
-2. The ChaosStrap version or source commit you are using.
-3. The steps needed to reproduce the problem.
-4. What you expected to happen and what happened instead.
-5. The complete error message or relevant build output.
+Use the [GitHub issue tracker](https://github.com/TheChaosManBehindAll/ChaosStrap/issues) to report reproducible bugs or request changes.
 
-Remove passwords, authentication cookies, access tokens and other private information from logs before posting them. Do not include Roblox account credentials in an issue.
+When submitting a bug report, include:
 
-## Maintainer
+- Windows edition and version.
+- The ChaosStrap version or commit being used.
+- Steps to reproduce the issue.
+- Expected and actual behaviour.
+- Relevant error messages or build output.
 
-ChaosStrap is a **solo-maintained project** by **xphantomcorp**. The maintainer handles implementation, issue triage, reviews, releases and documentation. As with any one-person project, response times and release dates depend on availability; there is no promised release schedule.
-
-The project is developed in public, and this README is intended to reflect the current code rather than advertise unfinished features. Clear bug reports and reproducible test cases are especially helpful.
+Remove passwords, authentication cookies, access tokens and other private information before sharing logs or screenshots.
 
 ## Contributing
 
-Focused bug reports, improvements and pull requests are welcome. For a larger change, open an issue first so the proposed behaviour can be discussed before work begins.
+Focused bug fixes, documentation improvements and feature contributions are welcome. For substantial changes, open an issue first to discuss the proposed behaviour and implementation approach.
 
-- [Open an issue](https://github.com/TheChaosManBehindAll/ChaosStrap/issues)
-- [Browse the source repository](https://github.com/TheChaosManBehindAll/ChaosStrap)
+All contributions should be relevant to the project, documented where appropriate and tested before a pull request is submitted.
+
+## Project information
+
+| Resource | Link |
+|---|---|
+| Official repository | [TheChaosManBehindAll/ChaosStrap](https://github.com/TheChaosManBehindAll/ChaosStrap) |
+| Releases | [GitHub Releases](https://github.com/TheChaosManBehindAll/ChaosStrap/releases) |
+| Build status and artifacts | [GitHub Actions](https://github.com/TheChaosManBehindAll/ChaosStrap/actions) |
+| Bug reports and requests | [GitHub Issues](https://github.com/TheChaosManBehindAll/ChaosStrap/issues) |
+
+**Maintainer:** [xphantomcorp](https://github.com/TheChaosManBehindAll)
 
 ## License
 
-A repository-level `LICENSE` file has not been published yet. Until a license is added, no open-source reuse or redistribution rights are granted by this README. The project license and any applicable third-party notices need to be established before public distribution.
+A repository-level license has not yet been published. Until a license is added, the availability of the source code does not grant permission to reuse, modify or redistribute it. Third-party dependencies remain subject to their respective licenses.
 
 ---
 
 <div align="center">
   <strong>ChaosStrap</strong><br />
-  <sub>Independently developed by xphantomcorp.</sub>
+  <sub>Developed independently by xphantomcorp.</sub>
 </div>
